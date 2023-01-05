@@ -24,6 +24,6 @@ PropsWithChildren<{ value: Cell}>
 
     return (
     <div className={value.status === CellStatus.Alive ? "cell alive" : (value.status === CellStatus.AliveOld ? "cell alive old" : "cell dead")}>
-        {value.status}
+        {value.id}
     </div>)
 }

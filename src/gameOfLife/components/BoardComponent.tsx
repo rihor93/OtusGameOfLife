@@ -387,7 +387,7 @@ export const BoardComponent: React.FC = () => {
     return (
         <div>
             {broadDraw.map(function (cell, i) {
-                return (<CellComponent value={cell}></CellComponent>);
+                return (<CellComponent value={cell} key={cell.id}></CellComponent>);
             })
             }
         </div>)

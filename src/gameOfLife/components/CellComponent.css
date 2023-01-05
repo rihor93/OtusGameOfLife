@@ -18,7 +18,7 @@
   	border-radius: none;
 }
 
-.cell:nth-child(70n + 1) {
+.cell:nth-child(50n + 1) {
 	clear: both;
 }
 
