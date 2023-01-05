@@ -26,14 +26,42 @@ export const BoardComponent: React.FC = () => {
     /**
      * функция очистки поля, для игры
      */
-    function clearBoard() {
+    function clearBoard(): void {
         board = [];
         for (var i = 0; i < cells; i++) {
             board[i] = { id: i, status: CellStatus.Dead };
         }
     }
 
-    function runGeneration() {
+    /**
+     * генератор случайных чисел
+     * @param max максимальное значение, для генератора,возвращает знание от 0 до max
+     * @returns 
+     */
+    function getRandomInt(max: number): number {
+        return Math.floor(Math.random() * max);
+    }
+
+    /**
+     * функция инициализации начального состоянии игры
+     */
+    function randomBoard(): void {
+        board = [];
+        for (var i = 0; i < cells; i++) {
+            let randomVal = getRandomInt(2);
+            if (randomVal === 0) {
+                board[i] = { id: i, status: CellStatus.Dead };
+            } else {
+                board[i] = { id: i, status: CellStatus.Alive };
+            }
+        }
+    }
+
+    /**
+     * функция по обработке массива ячеек, на очередном тике жизни
+     * @returns массив ячеек, после очередного цикла работы
+     */
+    function runGeneration(): Cell[] {
 
         let newBoard = [];
 
@@ -71,7 +99,7 @@ export const BoardComponent: React.FC = () => {
 
 
     function runIt() {
-        clearBoard() ;
+        randomBoard();
         setTimeout(function () {
             generation++;
             board = runGeneration();
