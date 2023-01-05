@@ -98,20 +98,28 @@ export const BoardComponent: React.FC = () => {
     }
 
 
-    function runIt() {
+    /*function runIt() {
         randomBoard();
+        //setBroad(board);
         setTimeout(function () {
             generation++;
             board = runGeneration();
             setTimeout(function () {
                 setBroad(board);
-                runIt();
+                //runIt();
             }, delay);
         }, 0);
 
     };
 
-    runIt();
+    runIt();*/
+
+
+    function runItTest(){
+        randomBoard();
+    }
+
+    runItTest();
 
     /**
      * функция проверки ячейки, на то, сколько воркуг неё живых ячеек
@@ -411,10 +419,10 @@ export const BoardComponent: React.FC = () => {
         return count;
     }
 
-    const [broadDraw, setBroad] = React.useState<Cell[]>([]);
+    //const [broadDraw, setBroad] = React.useState<Cell[]>([]);
     return (
         <div>
-            {broadDraw.map(function (cell, i) {
+            {board.map(function (cell, i) {
                 return (<CellComponent value={cell} key={cell.id}></CellComponent>);
             })
             }
